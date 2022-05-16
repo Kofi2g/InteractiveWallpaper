@@ -1,0 +1,52 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 8rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+.date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.date-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 60vh;
+    height: 50vh;
+}
+
+form {
+    /* border: 2px red solid; */
+    margin: 1rem;
+}
+
+.toDoDiv {
+    /* border: 2px red solid;   */
+    margin: 1.5rem;
+}
+
+ul {
+    /* list-style-type: none; */
+}
+
+.toDo {
+    font-size: 2rem;
+    margin: 1rem;
+}

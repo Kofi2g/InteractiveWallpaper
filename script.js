@@ -83,6 +83,7 @@ checkHours()
 
 const units = "metric"
 const key = "8a17353366f90cc63c75f2704f902965"
+// Please dont abuse im testing 
 const url = `https://api.openweathermap.org/data/2.5/weather?q=London&${units}&appid=${key}`
 
 const getWeather = async () => {

@@ -1,16 +1,3 @@
-const today = new Date;
-
-const options = {
-    hour: "2-digit",
-    minute: "2-digit",
-}
-const todaysDate = today.toLocaleTimeString("en-UK", options) {
-    /* <form id="form" class="addForm" action="">
-                <input id="item" type="text">
-                <input class="submitButton" type="submit" value="submit">
-            </form> */
-}
-
 const div = document.createElement("div");
 const box = document.createElement("div");
 const toDoDiv = document.createElement("div");
@@ -22,8 +9,19 @@ const inputText = document.createElement("input");
 const inputSubmit = document.createElement("input");
 const ul = document.createElement("ul");
 
+const today = new Date;
+const options = {
+    hour: "2-digit",
+    minute: "2-digit",
+    // second: "numeric"
+}
 
-h1.innerText = todaysDate;
+h1.innerText = today.toLocaleTimeString("en-UK", options);
+setInterval(() => {
+    const today = new Date;
+    h1.innerText = today.toLocaleTimeString("en-UK", options);
+}, 60000)
+
 toDo.innerText = "To Do List";
 div.className = "date-container";
 box.className = "date-box";
@@ -41,7 +39,7 @@ form.appendChild(inputText);
 form.appendChild(inputSubmit);
 
 form.addEventListener("submit", e => {
-
+    
     e.preventDefault();
     const li = document.createElement("li");
     const inputValue = document.querySelector("input").value;
@@ -52,25 +50,50 @@ form.addEventListener("submit", e => {
     toDoDiv.appendChild(ul)
     document.body.appendChild(toDoDiv);
     form.reset();
-
-
-
+ 
 });
 
 document.body.appendChild(div);
 document.body.appendChild(toDo);
 document.body.appendChild(form);
 
+
 let hour = today.getHours();
 
-if (hour >= 12 && hour < 18) {
-    h2.innerText = "Good Afternoon Kofi"
-} else if (hour >= 18 && hour < 21) {
-    h2.innerText = "Good Evening Kofi"
-} else if (hour >= 21 && hour < 24) {
-    h2.innerText = "Good Night Kofi"
-} else if (hour >= 0 && hour < 6) {
-    h2.innerText = "Good Night Kofi"
-} else {
-    h2.innerText = "Good Morning Kofi"
-};
+   
+
+function checkHours() {
+    
+    if (hour >= 12 && hour < 18) {
+        h2.innerText = "Good Afternoon Kofi"
+    } else if (hour >= 18 && hour < 21) {
+        h2.innerText = "Good Evening Kofi"
+    } else if (hour >= 21 && hour < 24) {
+        h2.innerText = "Good Night Kofi"
+    } else if (hour >= 0 && hour < 6) {
+        h2.innerText = "Good Night Kofi"
+    } else {
+        h2.innerText = "Good Morning Kofi"
+    }
+
+}
+checkHours()
+
+const url = "https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=8a17353366f90cc63c75f2704f902965"
+const getWeather = async () => {
+    const response = await fetch(url)
+
+   const data = await response.json()
+   return data;
+}
+
+getWeather().then((data) => {
+    const temperature = (data.main.temp);
+    const weatherDescription = data.weather[0].description;
+    const icon = data.weather[0].icon;
+    const imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`
+
+
+    
+})
+

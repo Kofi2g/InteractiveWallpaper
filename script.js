@@ -79,7 +79,10 @@ function checkHours() {
 }
 checkHours()
 
-const url = "https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=8a17353366f90cc63c75f2704f902965"
+const units = "metric"
+const key = "8a17353366f90cc63c75f2704f902965"
+const url = `https://api.openweathermap.org/data/2.5/weather?q=london&units=${units}&appid=${key}`
+
 const getWeather = async () => {
     const response = await fetch(url)
 
@@ -88,12 +91,24 @@ const getWeather = async () => {
 }
 
 getWeather().then((data) => {
+
     const temperature = (data.main.temp);
     const weatherDescription = data.weather[0].description;
     const icon = data.weather[0].icon;
     const imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`
+    const logo = document.querySelector("img")
+    let imageUrl = imageURL
+    logo.setAttribute("src",imageUrl)
 
 
+    const paraArray = [temperature , weatherDescription]
+    paraArray.forEach((pg) => {
+
+        let p = document.createElement("p")
+        p.innerText = pg
+        document.body.appendChild(p)
+        
+    })
     
 })
 

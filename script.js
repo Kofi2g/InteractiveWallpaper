@@ -10,6 +10,8 @@ const form = document.createElement("form");
 const inputText = document.createElement("input");
 const inputSubmit = document.createElement("input");
 const ul = document.createElement("ul");
+const img = document.querySelector("img")
+const gridContainer = document.createElement("div")
 
 const today = new Date;
 const options = {
@@ -29,6 +31,8 @@ div.className = "date-container";
 box.className = "date-box";
 toDoDiv.className = "toDoDiv";
 toDo.className = "toDo";
+gridContainer.className = "grid-container"
+
 
 inputText.setAttribute("type", "text");
 inputSubmit.setAttribute("type", "submit");
@@ -58,6 +62,7 @@ form.addEventListener("submit", e => {
 document.body.appendChild(div);
 document.body.appendChild(toDo);
 document.body.appendChild(form);
+document.body.appendChild(gridContainer);
 
 
 let hour = today.getHours();
@@ -94,14 +99,16 @@ const getWeather = async () => {
 }
 
 getWeather().then((data) => {
-
+    const weatherContainer = document.createElement("div")
+    weatherContainer.className = "weather-container";
     const temperature = (data.main.temp);
     const weatherDescription = data.weather[0].description;
     const icon = data.weather[0].icon;
     const imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`
     const logo = document.querySelector("img")
     let imageUrl = imageURL
-    logo.setAttribute("src",imageUrl)
+    logo.setAttribute("src", imageUrl)
+    
 
 
     const paraArray = [temperature , weatherDescription]
@@ -109,7 +116,9 @@ getWeather().then((data) => {
 
         let p = document.createElement("p")
         p.innerText = pg
-        document.body.appendChild(p)
+        weatherContainer.appendChild(p)
+        weatherContainer.appendChild(img)
+        document.body.appendChild(weatherContainer)
         
     })
     

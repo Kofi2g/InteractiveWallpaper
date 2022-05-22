@@ -89,7 +89,7 @@ checkHours()
 const units = "metric"
 const key = "8a17353366f90cc63c75f2704f902965"
 // Please dont abuse im testing 
-const url = `https://api.openweathermap.org/data/2.5/weather?q=London&${units}&appid=${key}`
+const url = `https://api.openweathermap.org/data/2.5/weather?q=London&units=${units}&appid=${key}`
 
 const getWeather = async () => {
     const response = await fetch(url)
@@ -100,8 +100,10 @@ const getWeather = async () => {
 
 getWeather().then((data) => {
     const weatherContainer = document.createElement("div")
+    const weatherTextContainer = document.createElement("div")
     weatherContainer.className = "weather-container";
-    const temperature = (data.main.temp);
+    weatherTextContainer.className = "weather-text-container"
+    const temperature = `${data.main.temp}°`;
     const weatherDescription = data.weather[0].description;
     const icon = data.weather[0].icon;
     const imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`
@@ -116,9 +118,12 @@ getWeather().then((data) => {
 
         let p = document.createElement("p")
         p.innerText = pg
-        weatherContainer.appendChild(p)
-        weatherContainer.appendChild(img)
+        weatherTextContainer.appendChild(p)
+        weatherTextContainer.appendChild(img)
+        weatherContainer.appendChild(weatherTextContainer)
+
         gridContainer.appendChild(weatherContainer)
+        
         
     })
     

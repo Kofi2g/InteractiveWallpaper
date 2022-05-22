@@ -13,6 +13,9 @@ h1 {
 
 h2 {
     font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .date-container {
@@ -41,6 +44,9 @@ form {
 
 .toDoDiv {
     /* border: 2px red solid;   */
+    display: flex;
+    justify-content: center;
+    align-content: center;
     margin: 1.5rem;
 }
 
@@ -54,13 +60,24 @@ form {
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
+    text-align: center;
     margin-right: 2rem;
-    /* border: red 2px solid; */
-    
+}
+
+.weather-container p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* border: 2px red solid; */
+    place-items: center;
+    grid-template-columns: 1fr ;
+}
+
+
+.weather-text-container {
+    text-align: center;
 }

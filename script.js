@@ -1,5 +1,4 @@
 
-
 const div = document.createElement("div");
 const box = document.createElement("div");
 const toDoDiv = document.createElement("div");
@@ -34,7 +33,9 @@ toDo.className = "toDo";
 gridContainer.className = "grid-container"
 
 
+inputText.autofocus = true
 inputText.setAttribute("type", "text");
+inputText.setAttribute("placeholder", "Whats the move?");
 inputSubmit.setAttribute("type", "submit");
 
 box.appendChild(h1);
@@ -61,6 +62,8 @@ form.addEventListener("submit", e => {
 
 document.body.appendChild(div);
 document.body.appendChild(toDo);
+// TO DO LIST NOT DISPLAYED
+toDo.style.display = "none"
 document.body.appendChild(gridContainer);
 gridContainer.appendChild(form);
 

@@ -6,6 +6,14 @@
     margin: 0;
 }
 
+body {
+    background-image: url("night_sky_2.jpg");
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+    color: white;
+}
+
 h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 8rem;
@@ -38,8 +46,30 @@ h2 {
 form {
     /* border: 2px red solid; */
     margin: 1rem;
+}
+
+input[type=submit] {
+    font-size: 1rem;
+    margin: .3rem;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(144, 221, 135);
+    background-color: rgb(144, 221, 135);
+    padding: .2rem;
+    cursor: pointer;
+    
+}
+
+input[type=text] {
+    color: red;
+    padding: .2rem;
+    font-size: 1rem;
+    background-color: transparent;
+}
 
 
+::placeholder {
+    color: white;
+    opacity: .7;
 }
 
 .toDoDiv {
@@ -62,6 +92,7 @@ form {
     flex-direction: column;
     text-align: center;
     margin-right: 2rem;
+    font-size: 1.3rem;
 }
 
 .weather-container p {
@@ -81,3 +112,4 @@ form {
 .weather-text-container {
     text-align: center;
 }
+

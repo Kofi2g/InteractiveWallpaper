@@ -54,15 +54,15 @@ form.addEventListener("submit", e => {
     li.appendChild(liText)
     ul.appendChild(li)
     toDoDiv.appendChild(ul)
-    document.body.appendChild(toDoDiv);
+    gridContainer.appendChild(toDoDiv);
     form.reset();
  
 });
 
 document.body.appendChild(div);
 document.body.appendChild(toDo);
-document.body.appendChild(form);
 document.body.appendChild(gridContainer);
+gridContainer.appendChild(form);
 
 
 let hour = today.getHours();
@@ -118,7 +118,7 @@ getWeather().then((data) => {
         p.innerText = pg
         weatherContainer.appendChild(p)
         weatherContainer.appendChild(img)
-        document.body.appendChild(weatherContainer)
+        gridContainer.appendChild(weatherContainer)
         
     })
     

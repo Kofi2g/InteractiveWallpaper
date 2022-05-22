@@ -35,15 +35,13 @@ h2 {
 form {
     /* border: 2px red solid; */
     margin: 1rem;
+
+
 }
 
 .toDoDiv {
     /* border: 2px red solid;   */
     margin: 1.5rem;
-}
-
-ul {
-    /* list-style-type: none; */
 }
 
 .toDo {
@@ -62,5 +60,7 @@ ul {
 }
 
 .grid-container {
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* border: 2px red solid; */
 }

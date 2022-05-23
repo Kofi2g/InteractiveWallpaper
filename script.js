@@ -1,4 +1,3 @@
-
 const div = document.createElement("div");
 const box = document.createElement("div");
 const toDoDiv = document.createElement("div");
@@ -57,7 +56,6 @@ form.addEventListener("submit", e => {
     toDoDiv.appendChild(ul)
     gridContainer.appendChild(toDoDiv);
     form.reset();
- 
 });
 
 document.body.appendChild(div);
@@ -68,10 +66,8 @@ document.body.appendChild(gridContainer);
 gridContainer.appendChild(form);
 
 
+// Need to implement a way to change H2 live
 let hour = today.getHours();
-
-   
-
 function checkHours() {
     
     if (hour >= 12 && hour < 18) {
@@ -85,13 +81,13 @@ function checkHours() {
     } else {
         h2.innerText = "Good Morning Kofi"
     }
-
 }
 checkHours()
 
+// GET API Data
 const units = "metric"
 const key = "8a17353366f90cc63c75f2704f902965"
-// Please dont abuse im testing 
+// Testing purposes
 const url = `https://api.openweathermap.org/data/2.5/weather?q=London&units=${units}&appid=${key}`
 
 const getWeather = async () => {
@@ -114,8 +110,6 @@ getWeather().then((data) => {
     let imageUrl = imageURL
     logo.setAttribute("src", imageUrl)
     
-
-
     const paraArray = [temperature , weatherDescription]
     paraArray.forEach((pg) => {
 
@@ -126,9 +120,6 @@ getWeather().then((data) => {
         weatherContainer.appendChild(weatherTextContainer)
 
         gridContainer.appendChild(weatherContainer)
-        
-        
-    })
-    
+    })  
 })
 

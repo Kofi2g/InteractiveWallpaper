@@ -32,6 +32,7 @@ toDo.className = "toDo";
 gridContainer.className = "grid-container"
 
 
+inputText.required = true
 inputText.autofocus = true
 inputText.setAttribute("type", "text");
 inputText.setAttribute("placeholder", "Whats the move?");
@@ -40,7 +41,6 @@ inputSubmit.setAttribute("type", "submit");
 box.appendChild(h1);
 box.appendChild(h2);
 div.appendChild(box);
-
 form.appendChild(inputText);
 form.appendChild(inputSubmit);
 
